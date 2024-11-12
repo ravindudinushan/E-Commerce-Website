@@ -13,7 +13,7 @@ import Verify from "./pages/Verify";
 
 export default function App() {
   return (
-    <div>
+    <main className="overflow-hidden text-[#404040] bg-primary">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,6 +27,6 @@ export default function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/verify" element={<Verify />} />
       </Routes>
-    </div>
+    </main>
   )
 }
