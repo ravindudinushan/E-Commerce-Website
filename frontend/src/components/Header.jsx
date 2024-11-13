@@ -31,7 +31,7 @@ const Header = () => {
 
         {/* Navbar */}
         <div className="flex-1">
-          <Navbar />
+          <Navbar menuOpened={menuOpened} toggleMenu={toggleMenu} containerStyles={''}/>
         </div>
 
         {/* logo */}
