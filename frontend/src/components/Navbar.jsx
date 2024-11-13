@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaRegWindowClose } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { SiGooglehome, SiAtlassian, SiMaildotcom  } from 'react-icons/si'
 import { BsCollection } from 'react-icons/bs'
