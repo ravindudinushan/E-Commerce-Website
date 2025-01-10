@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Navbar = ({containerStyles}) => {
+const Navbar = ({ containerStyles, onClick }) => {
   const navLinks = [
     { path: "/", title: "Home" },
     { path: "/collection", title: "Collection" },
@@ -18,6 +18,7 @@ const Navbar = ({containerStyles}) => {
           className={({ isActive }) =>
             `${isActive ? "active-link" : ""} px-3 py-2 rounded-full`
           }
+          onClick={onClick} // Close menu when line click
         >
           {link.title}
         </NavLink>
