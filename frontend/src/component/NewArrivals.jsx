@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "./Title";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,9 +7,10 @@ import "swiper/css";
 // import required modules
 import { Autoplay } from "swiper/modules";
 import Item from "./Item";
-import { products } from "../assets/data";
+import { ShopContext } from "../context/ShopContext";
 
 const NewArrivals = () => {
+  const {products} = useContext(ShopContext)
   const [PopularProduct, setPopularProduct] = useState([]);
 
   useEffect(() => {

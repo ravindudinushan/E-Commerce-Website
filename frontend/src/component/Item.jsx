@@ -27,8 +27,8 @@ const Item = ({ product }) => {
       <div className="p-3">
         <h4 className="bold-15 line-clamp-1 !py-0">{product.name}</h4>
         <div className="flexBetween pt-1">
-          <p className="h-5">{product.category}</p>
-          <h5 className="h-5 pr-2">${product.price}.00</h5>
+          <p className="h5">{product.category}</p>
+          <h5 className="h5 pr-2">${product.price}.00</h5>
         </div>
         <p className="line-clamp-2 py-1">{product.description}</p>
       </div>
