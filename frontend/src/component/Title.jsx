@@ -8,7 +8,7 @@ const Title = ({ title1, title2, titleStyles, title1Styles, paraStyles }) => {
         <span className="text-secondary !font-light underline">{title2}</span>
       </h2>
       <p className={`${paraStyles} hidden`}>
-        Discover the best deals on top-quality products, Crafted to elevate your
+        Discover the best deals on top-quality products, Crafted <br/> to elevate your
         everyday experience.
       </p>
     </div>

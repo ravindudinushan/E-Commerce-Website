@@ -18,7 +18,7 @@ const NewArrivals = () => {
   }, [products]);
 
   return (
-    <section>
+    <section className="max-padd-container pt-16">
       <Title
         title1={"New"}
         title2={"Arrivals"}
