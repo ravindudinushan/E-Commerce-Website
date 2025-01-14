@@ -17,7 +17,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row gap-5 gap-y-10">
         {/* TESTIMONIAL */}
         <div className="flex-1 flexCenter flex-col">
-          <Title title1={"People"} title2={"Says"} title1Styles={"h3"} />
+          <Title title1={"People"} title2={"Says"} title1Styles={"h3"} titleStyles={'!pb-2'}/>
           <img
             src={testimonial}
             alt=""
@@ -46,7 +46,7 @@ const About = () => {
         </div>
         {/* ABOUT */}
         <div className="flex-[1] flexCenter flex-col">
-          <Title title1={"About"} title2={"Us"} title1Styles={"h3"} />
+          <Title title1={"About"} title2={"Us"} title1Styles={"h3"} titleStyles={'!pb-2'}/>
           <div className="flex flex-col items-start">
             <div className="flexCenter gap-3 mb-3">
               <RiSecurePaymentLine className="text-xl"/>
