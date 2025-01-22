@@ -9,7 +9,7 @@ const PopularProduct = () => {
   useEffect(() => {
     const data = products.filter((item) => item.popular);
     setPopularProducts(data.slice(0, 5));
-  },[]);
+  },[products]);
   return (
     <section className="max-padd-container py-16">
       <Title
