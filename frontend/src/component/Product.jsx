@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { FaCheck, FaStar } from "react-icons/fa";
 import { FaStarHalfStroke } from "react-icons/fa6";
+import { TbShoppingBagPlus } from "react-icons/tb";
 
 const Product = () => {
   const { productId } = useParams();
@@ -81,7 +82,7 @@ const Product = () => {
                     {item === color ? (
                       <FaCheck
                         className={
-                          item === "white" ? "text-black" : "text-white"
+                          item === "White" ? "text-black" : "text-white"
                         }
                       />
                     ) : (
@@ -90,6 +91,9 @@ const Product = () => {
                   </button>
                 ))}
               </div>
+            </div>
+            <div>
+              <button onClick={() => {}} className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize">Add to Cart <TbShoppingBagPlus /> </button>
             </div>
           </div>
         </div>
