@@ -4,10 +4,10 @@ import { ShopContext } from "../context/ShopContext";
 import { FaCheck, FaHeart, FaStar } from "react-icons/fa";
 import { FaStarHalfStroke, FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus } from "react-icons/tb";
-import ProductDescription from "./ProductDescription";
-import ProductFeatures from "./ProductFeatures";
-import RelatedProducts from "./RelatedProducts";
-import Footer from "./Footer";
+import ProductDescription from "../component/ProductDescription";
+import ProductFeatures from "../component/ProductFeatures";
+import RelatedProducts from "../component/RelatedProducts";
+import Footer from "../component/Footer";
 
 const Product = () => {
   const { productId } = useParams();
