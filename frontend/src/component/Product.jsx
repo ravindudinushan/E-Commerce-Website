@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
-import { FaCheck, FaStar } from "react-icons/fa";
-import { FaStarHalfStroke } from "react-icons/fa6";
+import { FaCheck, FaHeart, FaStar } from "react-icons/fa";
+import { FaStarHalfStroke, FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus } from "react-icons/tb";
+import ProductDescription from "./ProductDescription";
+import ProductFeatures from "./ProductFeatures";
+import RelatedProducts from "./RelatedProducts";
+import Footer from "./Footer";
 
 const Product = () => {
   const { productId } = useParams();
@@ -70,8 +74,8 @@ const Product = () => {
               {product.price}.00
             </h4>
             <p className="max-w-[555px]">{product.description}</p>
-            <div>
-              <div>
+            <div className="flex flex-col gap-4 my-4 mb-5">
+              <div className="flex gap-2">
                 {[...product.colors].map((item, i) => (
                   <button
                     key={i}
@@ -92,12 +96,36 @@ const Product = () => {
                 ))}
               </div>
             </div>
-            <div>
-              <button onClick={() => {}} className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize">Add to Cart <TbShoppingBagPlus /> </button>
+            <div className="flex items-center">
+              <button
+                onClick={() => {}}
+                className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize"
+              >
+                Add to Cart <TbShoppingBagPlus />{" "}
+              </button>
+              <button className="btn-white !rounded-lg !py-3.5">
+                <FaHeart />
+              </button>
+            </div>
+            <div className="flex items-center gap-x-2 mt-3">
+              <FaTruckFast className="text-lg" />
+              <span className="medium-14">
+                Free Delivery on orders over 500$
+              </span>
+            </div>
+            <hr className="my-3 w-2/3" />
+            <div className="mt-2 flex flex-col gap-1 text-gray-30 text-[14px]">
+              <p>Authenticy You Can Trust</p>
+              <p>Enjoy Cash on Delivery for Your Convenience</p>
+              <p>Easy Return and Exchanges Within 7 Days</p>
             </div>
           </div>
         </div>
+        <ProductDescription />
+        <ProductFeatures />
+        <RelatedProducts category={product.category} />
       </div>
+      <Footer />
     </div>
   );
 };
