@@ -5,7 +5,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const PopularProduct = () => {
   const [popularProducts, setPopularProducts] = useState([]);
-  const {product} = useContext(ShopContext)
+  const {products} = useContext(ShopContext)
 
   useEffect(() => {
     const data = products.filter((item) => item.popular);

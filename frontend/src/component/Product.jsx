@@ -96,7 +96,7 @@ const Product = () => {
                 ))}
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-4">
               <button
                 onClick={() => {}}
                 className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize"
