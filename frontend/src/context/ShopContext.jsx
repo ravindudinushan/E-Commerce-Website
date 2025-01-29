@@ -49,15 +49,33 @@ const ShopContextProvider = (props) => {
 
   // UPDATING THE QUANTITY OF CART ITEMS
   const updateQuantity = async (itemId, color, quantity) => {
-    let cartData = structuredClone(cartItems)
-    cartData[itemId][color] = quantity
-    setCartItems(cartData)
-  }
+    let cartData = structuredClone(cartItems);
+    cartData[itemId][color] = quantity;
+    setCartItems(cartData);
+  };
 
-  useEffect(() => {
-  }, [cartItems]);
+  // GETING TOTAL CART AMOUNT
+  const getCartAmount = () => {
+    let totalAmount = 0;
+    for (const items in cartItems) {
+      let itemInfo = products.find((product) => product._id === items);
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+    return totalAmount;
+  };
+
+  useEffect(() => {}, [cartItems]);
 
   const value = {
+    navigate,
     products,
     search,
     setSearch,
@@ -67,7 +85,8 @@ const ShopContextProvider = (props) => {
     setCartItems,
     addToCart,
     getCartCount,
-    updateQuantity
+    updateQuantity,
+    getCartAmount,
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
