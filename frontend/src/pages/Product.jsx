@@ -43,7 +43,7 @@ const Product = () => {
             <div className="flex-1 flexCenter flex-col gap-[7px] flex-wrap">
               {product.image.map((item, i) => (
                 <img
-                key={1}
+                  onClick={() => setImage(item)}
                   src={item}
                   alt="productImg"
                   className="object-cover aspect-square rounded-lg"
