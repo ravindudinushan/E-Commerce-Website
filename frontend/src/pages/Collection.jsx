@@ -42,7 +42,7 @@ const Collection = () => {
       case "low":
         return productList.sort((a, b) => a.price - b.price);
       case "high":
-        return productList.sort((a, b) => a.price - b.price);
+        return productList.sort((a, b) => b.price - a.price);
       default:
         return productList;
     }
