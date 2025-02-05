@@ -1,3 +1,7 @@
+import { v2 as cloudinary } from "cloudinary";
+import productModel from "../models/productModel.js";
+import { json } from "express";
+
 // CONTROLLER FUNCTION FOR ADDING PRODUCT
 const addProduct = async (req, res) => {
   try {
@@ -17,12 +21,38 @@ const addProduct = async (req, res) => {
     if (images.length > 0) {
       imageUrl = await Promise.all(
         images.map(async (item) => {
-          const result = await cloudinary;
+          const result = await cloudinary.uploader.upload(item.path, {
+            resource_type: "image",
+          });
+          return result.secure_url;
         })
       );
+    } else {
+      // DEFAULT IMAGE URL IF NO IMAGES ARE PROVIDED
+      imageUrl = ['https://via.placeholder.com/150'];
     }
+
+    // CREATE PRODUCT DATA
+    const productData = {
+      name,
+      description,
+      price,
+      category,
+      popular: popular == "true" ? true : false,
+      colors: colors ? JSON.parse(colors) : [], // DEFAULE TO EMPTY ARRAY IF COLORS NOT PROVIDED
+      image: imageUrl,
+      date: Date.now(),
+    };
+
+    console.log(productData);
+
+    const product = new productModel(productData)
+    await product.save()
+
+    res.json({ success: true, message: "Product Add"})
   } catch (error) {
-    
+    console.log(error)
+    res.json({ success: false, message: error.message})
   }
 };
 
