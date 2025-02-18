@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 import Sidebar from "./components/Sidebar";
@@ -7,11 +7,17 @@ import Add from "./pages/Add";
 import Orders from "./pages/Orders";
 import List from "./pages/List";
 
-export const backend_url = import.meta.env.VITE_BACKEND_URL
-export const currency = "$"
+export const backend_url = import.meta.env.VITE_BACKEND_URL;
+export const currency = "$";
 
 export default function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(
+    localStorage.getItem("token") ? localStorage.getItem("token") : ""
+  );
+
+  useEffect(() => {
+    localStorage.setItem("token", token);
+  }, [token]);
 
   return (
     <main>
@@ -21,7 +27,7 @@ export default function App() {
       ) : (
         <div className="bg-primary text-[#404040]">
           <div className="mx-auto max-w-[1440px] flex-col sm:flex-row">
-            <Sidebar />
+            <Sidebar setToken={setToken}/>
             <Routes>
               <Route path="/" element={<Add />} />
               <Route path="/list" element={<List />} />
