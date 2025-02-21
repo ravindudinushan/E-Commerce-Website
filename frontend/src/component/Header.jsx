@@ -2,15 +2,21 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { FaBars, FaBarsStaggered } from "react-icons/fa6";
-import {} from "react-icons/tb";
+import { TbUserCircle } from "react-icons/tb";
 import { RiUserLine } from "react-icons/ri";
 import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const {getCartCount, navigate} = useContext(ShopContext)
+  const { getCartCount, navigate, token, setToken } = useContext(ShopContext);
 
   const toggleMenu = () => setMenuOpened((prev) => !prev);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/login");
+  };
 
   return (
     <header className="max-padd-container w-full mb-2">
@@ -57,10 +63,38 @@ const Header = () => {
           </Link>
           {/* USER PROFILE */}
           <div className="group relative">
-            <button onClick={() => navigate("/login")} className="btn-dark flexCenter gap-x-2">
-              Login
-              <RiUserLine className="text-xl" />
-            </button>
+            <div>
+              {token ? (
+                <div>
+                  <TbUserCircle className="text-[29px] cursor-pointer" />
+                </div>
+              ) : (
+                <button
+                  onClick={() => navigate("/login")}
+                  className="btn-dark flexCenter gap-x-2"
+                >
+                  Login
+                  <RiUserLine className="text-xl" />
+                </button>
+              )}
+            </div>
+            {/* DROPDOWN */}
+            {token && (
+              <ul className="bg-white p-2 w-32 ring-1 ring-slate-900/5 rounded absolute right-0 top-7 hidden group-hover:flex flex-col medium-14 shadow-md z-50">
+                <li
+                  onClick={() => navigate("/orders")}
+                  className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer"
+                >
+                  Orders
+                </li>
+                <li
+                  onClick={logout}
+                  className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer"
+                >
+                  Logout
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>
