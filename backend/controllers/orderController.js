@@ -31,15 +31,23 @@ const placeOrder = async (req, res) => {
 const placeOrderStripe = async (req, res) => {};
 
 // CONTROLLER FUNCTION FOR GETTING ALL ORDERS DATA FOR ADMIN PANEL
-const allOrders = async (req, res) => {};
+const allOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({});
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // CONTROLLER FUNCTION FOR GETTING USER ORDERS DATA FOR FRONTEND
 const userOrders = async (req, res) => {
   try {
-    const {userId} = req.body
+    const { userId } = req.body;
 
-    const orders = await orderModel.find({userId})
-    res.json({success: true, orders}) 
+    const orders = await orderModel.find({ userId });
+    res.json({ success: true, orders });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
