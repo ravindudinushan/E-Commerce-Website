@@ -10,6 +10,7 @@ import Cart from './pages/Cart'
 import PlaceOrder from './pages/PlaceOrder'
 import Login from './pages/Login'
 import Orders from './pages/Orders'
+import Verify from './pages/Verify'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/login' element={<Login />} />
         <Route path='/orders' element={<Orders />} />
+        <Route path='/verify' element={<Verify />} />
       </Routes>
     </main>
   )
