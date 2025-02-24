@@ -204,7 +204,7 @@ const Orders = () => {
                   <div className="text-sm text-gray-600">
                     <p>{item.status}</p>
                   </div>
-                  <button className="px-4 py-1 text-sm bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                  <button onClick={loadOrderData} className="px-4 py-1 text-sm bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
                     Track Order
                   </button>
                 </div>
