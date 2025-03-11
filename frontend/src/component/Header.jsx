@@ -5,6 +5,7 @@ import { FaBars, FaBarsStaggered } from "react-icons/fa6";
 import { TbUserCircle } from "react-icons/tb";
 import { RiUserLine } from "react-icons/ri";
 import { ShopContext } from "../context/ShopContext";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -54,8 +55,9 @@ const Header = () => {
           </>
           {/* CART */}
           <Link to={"/cart"} className="flex relative">
-            <div className="ring-1 ring-slate-900 rounded-full px-3 bold-18">
-              Cart
+            <div className="ring-1 ring-slate-900 rounded-full px-3 bold-18 flex items-center h-9">
+              <span className="text-base">Cart</span>
+              <FiShoppingCart className="text-xl"/>
               <span className="bg-secondary text-white text-[12px] font-semibold absolute -top-3.5 -right-2 flexCenter w-4 h-4 rounded-full shadow-md">
                 {getCartCount()}
               </span>
